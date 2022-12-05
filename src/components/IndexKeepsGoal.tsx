@@ -9,12 +9,12 @@ import TopNavigation from "./TopNavigation";
 const KeepsGoal = () => {
   return (
     <React.Fragment>
-      <Metrics />
+      {/* <Metrics />
       <GoalDetails />
       <GoalList />
-      <NewGoalDetails />
+      <NewGoalDetails /> */}
       <SideNavigation />
-      <TopNavigation />
+      {/* <TopNavigation /> */}
     </React.Fragment>
   );
 };
