@@ -1,4 +1,7 @@
 import React from "react";
+import "./../index.css";
+
+// COMPONENTS
 import GoalDetails from "./GoalDetails";
 import GoalList from "./GoalList";
 import Metrics from "./Metrics";
@@ -8,14 +11,16 @@ import TopNavigation from "./TopNavigation";
 
 const KeepsGoal = () => {
   return (
-    <React.Fragment>
-      {/* <Metrics />
+    <div className="flex flex-">
+      <SideNavigation />
+      <div className="flex-grow">
+        {/* <Metrics />
       <GoalDetails />
       <GoalList />
       <NewGoalDetails /> */}
-      <SideNavigation />
-      {/* <TopNavigation /> */}
-    </React.Fragment>
+        <TopNavigation />
+      </div>
+    </div>
   );
 };
 

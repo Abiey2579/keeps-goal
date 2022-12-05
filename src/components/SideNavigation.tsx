@@ -12,12 +12,11 @@ import {
   DocumentTextIcon,
   QuestionMarkCircleIcon,
   Cog8ToothIcon,
-  UserIcon,
 } from "@heroicons/react/24/outline";
 
 const SideNavigation = () => {
   return (
-    <div className=" bg-gray-100 max-w-xs h-[100vh] p-8 relative">
+    <div className=" bg-gray-100 w-80 min-w-fit max-w-xs h-[100vh] p-8">
       <h1 className="text-2xl font-bold mb-10">KEEPSGOAL</h1>
       <ul>
         <li className="mb-2">
