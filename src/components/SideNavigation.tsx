@@ -24,6 +24,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <ChartBarIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Goal Timeline</span>
@@ -33,6 +34,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <CalendarDaysIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Daily Routine</span>
@@ -42,6 +44,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <CalendarIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Weekly Routine</span>
@@ -51,6 +54,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <CalendarDaysIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Monthly Routine</span>
@@ -60,6 +64,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <DocumentTextIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Export</span>
@@ -69,6 +74,7 @@ const SideNavigation = () => {
           <a
             href="./"
             className="flex items-center block hover:bg-lime-300 p-3 rounded-sm transition"
+            onClick={(e) => e.preventDefault()}
           >
             <QuestionMarkCircleIcon className="h-5 w-5 mr-3" />
             <span className="font-semibold">Help Center</span>
@@ -79,7 +85,8 @@ const SideNavigation = () => {
         <li className="mb-2">
           <a
             href="./"
-            className="flex items-center block hover:font-bold p-3 transition"
+            className="flex items-center block p-3"
+            onClick={(e) => e.preventDefault()}
           >
             <img
               src={UserProfileImage}
@@ -92,7 +99,8 @@ const SideNavigation = () => {
         <li className="mb-2">
           <a
             href="./"
-            className="flex items-center block hover:font-bold p-3 transition"
+            className="flex items-center block p-3"
+            onClick={(e) => e.preventDefault()}
           >
             <Cog8ToothIcon className="h-6 w-6 mr-3" />
             <span className="font-semibold">Settings</span>
