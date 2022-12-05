@@ -2,8 +2,24 @@ import React from "react";
 
 const Metrics = () => {
   return (
-    <div>
-      <h1>Metrics</h1>
+    <div className="w-full grid grid-cols-4 gap-10 py-2">
+      <div className="border-r">
+        <span>
+          Goal <br /> This Month
+        </span>
+      </div>
+      <div className="flex flex-col border-r">
+        <span className="text-sm">Goal</span>
+        <span className="font-bold">8 Goals</span>
+      </div>
+      <div className="flex flex-col border-r">
+        <span className="text-sm">Due Date</span>
+        <span className="font-bold">30 Nov, 2022</span>
+      </div>
+      <div className="flex flex-col">
+        <span className="text-sm">Goal achieved</span>
+        <span className="font-bold">4 Achievements</span>
+      </div>
     </div>
   );
 };

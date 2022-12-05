@@ -11,14 +11,20 @@ import TopNavigation from "./TopNavigation";
 
 const KeepsGoal = () => {
   return (
-    <div className="flex flex-">
+    <div className="flex">
       <SideNavigation />
       <div className="flex-grow">
-        {/* <Metrics />
-      <GoalDetails />
-      <GoalList />
-      <NewGoalDetails /> */}
         <TopNavigation />
+        <div className="flex min-h-max">
+          <div className="flex-grow p-5">
+            <Metrics />
+            <GoalList />
+          </div>
+          <div className="w-96 min-w-fit max-w-sm p-5 bg-gray-100">
+            <GoalDetails />
+            <NewGoalDetails />
+          </div>
+        </div>
       </div>
     </div>
   );
