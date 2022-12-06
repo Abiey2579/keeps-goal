@@ -2,7 +2,7 @@ import React from "react";
 
 const Metrics = () => {
   return (
-    <div className="w-full grid grid-cols-4 gap-10 py-2">
+    <div className="w-full grid grid-cols-4 gap-10 py-4 px-5">
       <div className="border-r">
         <span>
           Goal <br /> This Month

@@ -13,10 +13,10 @@ const KeepsGoal = () => {
   return (
     <div className="flex">
       <SideNavigation />
-      <div className="flex-grow">
+      <div className="flex-grow h-screen">
         <TopNavigation />
-        <div className="flex min-h-max">
-          <div className="flex-grow p-5">
+        <div className="flex h-[85%]">
+          <div className="flex-grow h-full">
             <Metrics />
             <GoalList />
           </div>
