@@ -19,3 +19,41 @@ code {
 tr.cursor-pointer:hover span {
   color: #fff;
 }
+
+/* REMOVING APEX CHART DEFAULT STYLINGS */
+.apexcharts-toolbar {
+  display: none !important;
+}
+
+.apexcharts-yaxis {
+  display: none !important;
+}
+
+.apexcharts-xaxis {
+  display: none !important;
+}
+
+.apexcharts-legend.apexcharts-align-center.apx-legend-position-bottom {
+  display: none !important;
+}
+
+.apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom.apexcharts-theme-light {
+  display: none !important;
+}
+
+.apexcharts-xaxistooltip-text {
+  display: none !important;
+}
+
+.apexcharts-yaxistooltip.apexcharts-yaxistooltip-0.apexcharts-yaxistooltip-left.apexcharts-theme-light {
+  display: none !important;
+}
+
+.apexcharts-inner.apexcharts-graphical {
+  width: 500px !important;
+}
+
+.apexcharts-canvas.apexchartsg82ex53b.apexcharts-theme-light {
+  width: 500px !important;
+  height: 373.727px !important;
+}

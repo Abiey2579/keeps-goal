@@ -5,7 +5,7 @@ import "./../index.css";
 import GoalDetails from "./GoalDetails";
 import GoalList from "./GoalList";
 import Metrics from "./Metrics";
-import NewGoalDetails from "./NewGoalDetails";
+// import NewGoalDetails from "./NewGoalDetails";
 import SideNavigation from "./SideNavigation";
 import TopNavigation from "./TopNavigation";
 
@@ -20,9 +20,9 @@ const KeepsGoal = () => {
             <Metrics />
             <GoalList />
           </div>
-          <div className="w-96 min-w-fit max-w-sm p-5 bg-gray-100">
+          <div className="w-96 bg-gray-100">
             <GoalDetails />
-            <NewGoalDetails />
+            {/* <NewGoalDetails /> */}
           </div>
         </div>
       </div>
