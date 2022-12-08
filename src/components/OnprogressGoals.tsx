@@ -25,11 +25,14 @@ const OnprogressGoals = () => {
   return (
     <React.Fragment>
       {OnprogressGoalsResponse.map((Goal) => (
-        <tr key={Goal.GoalID} className=" hover:bg-gray-900 cursor-pointer">
+        <tr
+          key={Goal.GoalID}
+          className="items-center hover:bg-gray-900 cursor-pointer"
+        >
           <td className="py-3 pl-5">
             <span className="text-gray-400 text-sm">{Goal.DateCreated}</span>
           </td>
-          <td className="flex items-center py-3">
+          <td className="flex items-center h-full py-3">
             <DynamicHeroIcon icon={Goal.GoalIcon} />
             <div className="flex flex-col items-start">
               <span className="text-gray-900 text-sm font-medium">
