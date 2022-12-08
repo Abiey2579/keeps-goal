@@ -27,13 +27,13 @@ const GoalList = () => {
         </tr>
         <tr>
           <td colSpan={4} className="px-5">
-            <h1 className="py-5 font-semibold text-3xl">On progress</h1>
+            <h1 className="py-5 font-semibold text-2xl">On progress</h1>
           </td>
         </tr>
         <OnprogressGoals />
         <tr>
           <td colSpan={4} className="px-5">
-            <h1 className="py-5 font-semibold text-3xl">Goal done</h1>
+            <h1 className="py-5 font-semibold text-2xl">Goal done</h1>
           </td>
         </tr>
         <GoalsDone />

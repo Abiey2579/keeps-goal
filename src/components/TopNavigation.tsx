@@ -5,7 +5,7 @@ import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/outline";
 
 const TopNavigation = () => {
   return (
-    <div className="flex items-center justify-between h-[15%] px-4 py-3 w-full border-b">
+    <div className="flex items-center justify-between h-[15%] w-full border-b px-4">
       <h1 className="text-3xl font-semibold">Goal Timeline</h1>
       <div className="flex">
         <div className="flex items-center border rounded-sm mr-2 px-1">

@@ -124,14 +124,28 @@ const GoalDetails = () => {
             {/* CHARTS */}
             <ApexChartComponent />
           </div>
-          <div className="grid grid-cols-7 items-center gap-5 py-3">
-            <span className="text-xs font-medium text-gray-500">Sun</span>
-            <span className="text-xs font-medium text-gray-500">Mon</span>
-            <span className="text-xs font-medium text-gray-500">Tue</span>
-            <span className="text-xs font-medium text-gray-500">Wed</span>
-            <span className="text-xs font-medium text-gray-500">Thu</span>
-            <span className="text-xs font-medium text-gray-500">Fri</span>
-            <span className="text-xs font-medium text-gray-500">Sat</span>
+          <div className="grid grid-cols-7 items-center gap-4 py-3">
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Sun
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Mon
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Tue
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Wed
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Thu
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Fri
+            </span>
+            <span className="text-xs font-medium text-gray-500 hover:bg-gray-600 py-1 px-2 rounded-full hover:text-gray-100 cursor-pointer">
+              Sat
+            </span>
           </div>
         </div>
       </div>

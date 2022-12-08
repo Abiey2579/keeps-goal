@@ -15,9 +15,11 @@ import {
 
 const SideNavigation = () => {
   return (
-    <div className=" bg-gray-100 w-64 min-w-fit max-w-xs h-[100vh] p-8">
-      <h1 className="text-[1.3rem] font-bold mb-10">KEEPSGOAL</h1>
-      <ul>
+    <div className=" bg-gray-100 w-64 min-w-fit max-w-xs h-[100vh]">
+      <div className="h-[15%] flex items-center justify-center">
+        <h1 className="text-[1.3rem] font-bold">KEEPSGOAL</h1>
+      </div>
+      <ul className="px-6 py-3">
         <li className="mb-2">
           <a
             href="./"
@@ -79,7 +81,7 @@ const SideNavigation = () => {
           </a>
         </li>
       </ul>
-      <ul className="absolute bottom-0">
+      <ul className="absolute bottom-0 px-6">
         <li className="mb-2">
           <a
             href="./"
