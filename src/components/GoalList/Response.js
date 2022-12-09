@@ -1,6 +1,6 @@
 const Response = [
   {
-    GoalID: Date.now(),
+    GoalID: Math.floor(Math.random() * 9999999),
     DateCreated: "09:05 AM",
     GoalName: "Instagram Post Update",
     GoalType: "Social Media",
@@ -10,7 +10,7 @@ const Response = [
     GoalStatus: "Onprogress",
   },
   {
-    GoalID: Date.now(),
+    GoalID: Math.floor(Math.random() * 9999999),
     DateCreated: "09:05 AM",
     GoalName: "Android Studio Course",
     GoalType: "Learning",
@@ -20,7 +20,7 @@ const Response = [
     GoalStatus: "Onprogress",
   },
   {
-    GoalID: Date.now(),
+    GoalID: Math.floor(Math.random() * 9999999),
     DateCreated: "09:05 AM",
     GoalName: "Business Improvement",
     GoalType: "Business",
@@ -30,7 +30,7 @@ const Response = [
     GoalStatus: "Onprogress",
   },
   {
-    GoalID: Date.now(),
+    GoalID: Math.floor(Math.random() * 9999999),
     DateCreated: "09:05 AM",
     GoalName: "Home Interior Design",
     GoalType: "Property",
@@ -40,7 +40,7 @@ const Response = [
     GoalStatus: "Done",
   },
   {
-    GoalID: Date.now(),
+    GoalID: Math.floor(Math.random() * 9999999),
     DateCreated: "09:05 AM",
     GoalName: "Mike Air Jordan Shop",
     GoalType: "Fashion shopping",

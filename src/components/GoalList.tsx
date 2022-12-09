@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import OnprogressGoals from "./OnprogressGoals";
 import GoalsDone from "./GoalsDone";
 
-const GoalList = () => {
+const GoalList: FunctionComponent<any> = (props) => {
   // DYNAMIC HEROICON
   // https://github.com/tailwindlabs/heroicons/issues/278
   // SCROLLBAR
@@ -30,13 +30,13 @@ const GoalList = () => {
             <h1 className="py-5 font-semibold text-2xl">On progress</h1>
           </td>
         </tr>
-        <OnprogressGoals />
+        <OnprogressGoals ShowGoalDetail={props.ShowGoalDetail} />
         <tr>
           <td colSpan={4} className="px-5">
             <h1 className="py-5 font-semibold text-2xl">Goal done</h1>
           </td>
         </tr>
-        <GoalsDone />
+        <GoalsDone ShowGoalDetail={props.ShowGoalDetail} />
       </table>
     </div>
   );

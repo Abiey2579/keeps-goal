@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 // HERO ICONS LIBRARY
 import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/outline";
 
-const TopNavigation = () => {
+const TopNavigation: FunctionComponent<any> = (props) => {
   return (
     <div className="flex items-center justify-between h-[15%] w-full border-b px-4">
       <h1 className="text-3xl font-semibold">Goal Timeline</h1>
@@ -17,7 +17,10 @@ const TopNavigation = () => {
           <MagnifyingGlassIcon className="text-gray-900 font-bold w-5 h-5 cursor-pointer" />
         </div>
 
-        <button className="flex items-center py-2 px-4 bg-gray-900 rounded-sm">
+        <button
+          className="flex items-center py-2 px-4 bg-gray-900 rounded-sm"
+          onClick={props.EnterNewGoal}
+        >
           <PlusIcon className="w-5 h-5 mr-3 text-gray-100" />
           <span className="text-gray-100">Add Goal</span>
         </button>

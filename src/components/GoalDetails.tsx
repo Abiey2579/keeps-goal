@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { FunctionComponent } from "react";
 import {
   ArrowRightOnRectangleIcon,
   CalendarIcon,
@@ -7,12 +6,15 @@ import {
 } from "@heroicons/react/24/outline";
 import ApexChartComponent from "./Chart";
 
-const GoalDetails = () => {
+const GoalDetails: FunctionComponent<any> = (props) => {
   return (
-    <div className="h-[99%] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50">
+    <div className="h-[99%] w-96 bg-gray-100 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50">
       <div className="flex items-center justify-between border-b p-7">
         <h1 className="text-2xl font-medium">Goal Detail</h1>
-        <ArrowRightOnRectangleIcon className="w-5 h-5" />
+        <ArrowRightOnRectangleIcon
+          className="w-5 h-5 cursor-pointer"
+          onClick={props.HideSection4}
+        />
       </div>
       <div className="px-7 py-5">
         <div className="mb-4">

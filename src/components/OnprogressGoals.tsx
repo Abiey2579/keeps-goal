@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FunctionComponent } from "react";
 import * as HIcons from "@heroicons/react/24/outline";
 import Response from "./GoalList/Response";
 
-const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
+const DynamicHeroIcon: FunctionComponent<{ icon: string }> = (props) => {
   const { ...icons } = HIcons;
   // @ts-ignore
   const TheIcon: JSX.Element = icons[props.icon];
@@ -18,7 +18,7 @@ const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
   );
 };
 
-const OnprogressGoals = () => {
+const OnprogressGoals: FunctionComponent<any> = (props) => {
   const OnprogressGoalsResponse = Response.filter(
     (Goal) => Goal.GoalStatus === "Onprogress"
   );
@@ -28,6 +28,7 @@ const OnprogressGoals = () => {
         <tr
           key={Goal.GoalID}
           className="items-center hover:bg-gray-900 cursor-pointer"
+          onClick={() => props.ShowGoalDetail(Goal.GoalID)}
         >
           <td className="py-3 pl-5">
             <span className="text-gray-400 text-sm">{Goal.DateCreated}</span>

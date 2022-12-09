@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, FunctionComponent } from "react";
 import * as HIcons from "@heroicons/react/24/outline";
 import Response from "./GoalList/Response";
 
@@ -18,7 +18,7 @@ const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
   );
 };
 
-const GoalsDone = () => {
+const GoalsDone: FunctionComponent<any> = (props) => {
   const GoalsDoneResponse = Response.filter(
     (Goal) => Goal.GoalStatus === "Done"
   );
@@ -26,7 +26,11 @@ const GoalsDone = () => {
   return (
     <React.Fragment>
       {GoalsDoneResponse.map((Goal) => (
-        <tr key={Goal.GoalID} className=" hover:bg-gray-900 cursor-pointer">
+        <tr
+          key={Goal.GoalID}
+          className=" hover:bg-gray-900 cursor-pointer"
+          onClick={() => props.ShowGoalDetail(Goal.GoalID)}
+        >
           <td className="py-3 pl-5">
             <span className="text-gray-400 text-sm">{Goal.DateCreated}</span>
           </td>
