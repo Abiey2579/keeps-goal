@@ -2,10 +2,10 @@ import React from "react";
 import "./../index.css";
 
 // COMPONENTS
-import GoalDetails from "./GoalDetails";
+// import GoalDetails from "./GoalDetails";
 import GoalList from "./GoalList";
 import Metrics from "./Metrics";
-// import NewGoalDetails from "./NewGoalDetails";
+import NewGoalDetails from "./NewGoalDetails";
 import SideNavigation from "./SideNavigation";
 import TopNavigation from "./TopNavigation";
 
@@ -21,8 +21,8 @@ const KeepsGoal = () => {
             <GoalList />
           </div>
           <div className="w-96 bg-gray-100">
-            <GoalDetails />
-            {/* <NewGoalDetails /> */}
+            {/* <GoalDetails /> */}
+            <NewGoalDetails />
           </div>
         </div>
       </div>
