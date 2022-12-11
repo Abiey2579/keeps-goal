@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import KeepsGoal from "./components/IndexKeepsGoal";
+import KeepsGoal from "./components/KeepsGoalContainer";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(

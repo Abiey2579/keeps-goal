@@ -1,8 +1,10 @@
-import React, { FC, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import * as HIcons from "@heroicons/react/24/outline";
-import Response from "./GoalList/Response";
+import Response from "./Response/data";
 
-const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
+// This Function Customizes the HeroIcon Library
+// Used for Dynamic Icon Creation
+const DynamicHeroIcon: FunctionComponent<{ icon: string }> = (props) => {
   const { ...icons } = HIcons;
   // @ts-ignore
   const TheIcon: JSX.Element = icons[props.icon];
@@ -18,17 +20,20 @@ const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
   );
 };
 
-const GoalsDone: FunctionComponent<any> = (props) => {
-  const GoalsDoneResponse = Response.filter(
-    (Goal) => Goal.GoalStatus === "Done"
+// FunctionComponent<any> tell react that this component can
+// recieve props (NOTE: Removing it will break the program)
+// PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
+const OnprogressGoals: FunctionComponent<any> = (props) => {
+  // This Variable Will Holds Only Goals with Status "Onprogress"
+  const OnprogressGoalsResponse = Response.filter(
+    (Goal) => Goal.GoalStatus === "Onprogress"
   );
-
   return (
     <React.Fragment>
-      {GoalsDoneResponse.map((Goal) => (
+      {OnprogressGoalsResponse.map((Goal) => (
         <tr
           key={Goal.GoalID}
-          className=" hover:bg-gray-900 cursor-pointer"
+          className="items-center hover:bg-gray-900 cursor-pointer"
           onClick={() => props.ShowGoalDetail(Goal.GoalID)}
         >
           <td className="py-3 pl-5">
@@ -59,4 +64,4 @@ const GoalsDone: FunctionComponent<any> = (props) => {
   );
 };
 
-export default GoalsDone;
+export default OnprogressGoals;

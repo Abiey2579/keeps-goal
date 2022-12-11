@@ -5,7 +5,10 @@ import {
   PencilIcon,
 } from "@heroicons/react/24/outline";
 
-const NewGoalDetails: FunctionComponent<any> = (props) => {
+// FunctionComponent<any> tell react that this component can
+// recieve props (NOTE: Removing it will break the program)
+// PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
+const NewGoal: FunctionComponent<any> = (props) => {
   return (
     <div
       className="h-[99%] w-96 bg-gray-100 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50"
@@ -111,4 +114,4 @@ const NewGoalDetails: FunctionComponent<any> = (props) => {
   );
 };
 
-export default NewGoalDetails;
+export default NewGoal;

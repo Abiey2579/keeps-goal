@@ -1,7 +1,7 @@
 import React from "react";
 
 // USER IMAGE
-import UserProfileImage from "./../Images/user.jpg";
+import UserProfileImage from "./../../images/user.jpg";
 
 // HERO ICONS LIBRARY
 import {
@@ -13,6 +13,7 @@ import {
   Cog8ToothIcon,
 } from "@heroicons/react/24/outline";
 
+// PRESENTATIONAL COMPONENT (CONTAINS ONLY UI)
 const SideNavigation = () => {
   return (
     <div className=" bg-gray-100 w-64 min-w-fit max-w-xs h-[100vh]">

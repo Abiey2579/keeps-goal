@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
-class ApexChartComponent extends Component {
-  constructor(props) {
+// THIS CLASS RENDERS A CHART
+// That is used in ./GoalDetils.tsx Component
+class ApexChartComponent extends Component<any, any> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -48,15 +50,9 @@ class ApexChartComponent extends Component {
     };
   }
   render() {
-    return (
-      <Chart
-        options={this.state.options}
-        series={this.state.series}
-        type="area"
-        width="100%"
-      />
-    );
+    const { options, series } = this.state;
+    return <Chart options={options} series={series} type="area" width="100%" />;
   }
 }
 
-export default ApexChartComponent;
+export { ApexChartComponent };

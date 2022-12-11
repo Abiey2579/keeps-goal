@@ -2,12 +2,13 @@ import React, { FunctionComponent } from "react";
 import OnprogressGoals from "./OnprogressGoals";
 import GoalsDone from "./GoalsDone";
 
+// FunctionComponent<any> tell react that this component can
+// recieve props (NOTE: Removing it will break the program)
+// It's a Parent Component Contains Following Children
+// - OnprogressGoals
+// - GoalsDone
+// PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
 const GoalList: FunctionComponent<any> = (props) => {
-  // DYNAMIC HEROICON
-  // https://github.com/tailwindlabs/heroicons/issues/278
-  // SCROLLBAR
-  // https://www.npmjs.com/package/tailwind-scrollbar
-
   return (
     <div className="h-[85%] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50">
       <table className="w-full h-full">

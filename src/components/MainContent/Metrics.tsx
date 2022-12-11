@@ -1,5 +1,6 @@
 import React from "react";
 
+// PRESENTAIONAL COMPONENT (CONTAINS ONLY UI)
 const Metrics = () => {
   return (
     <div className="w-full grid grid-cols-4 gap-10 py-4 px-5">
