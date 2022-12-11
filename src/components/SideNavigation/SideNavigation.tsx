@@ -1,7 +1,7 @@
 import React from "react";
 
 // USER IMAGE
-import UserProfileImage from "./../../images/user.jpg";
+import UserProfileImage from "./../images/user.jpg";
 
 // HERO ICONS LIBRARY
 import {
