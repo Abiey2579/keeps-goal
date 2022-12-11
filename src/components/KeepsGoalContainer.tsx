@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./../index.css";
+// This is Function Adds New Goal to Firebase
+// (CONTAINER COMPONENT) --> CONTAINS LOGICS
+import createNewGoal from "../nodejs/AddNewGoal";
 
 // SESCTION 1 --> LEFT SIDE COMPONENT (PRESENTATIONAL COMPONENT)
 import SideNavigation from "./SideNavigation/SideNavigation";
@@ -33,8 +36,10 @@ import NewGoal from "./AsideContent/NewGoal";
 // ORIGIN COMPONENT
 const KeepsGoal = () => {
   // State holding info for conditionally rendering What to display on Section 4
-  let Section4A = <NewGoal HideSection4={HideSection4} />;
-  let Section4B = <GoalDetails HideSection4={HideSection4} />;
+  let Section4A = (
+    <NewGoal hideSection4={hideSection4} newGoalData={newGoalData} />
+  );
+  let Section4B = <GoalDetails hideSection4={hideSection4} />;
 
   // This State Holds the Status of Section 4 it has two Values
   // 1 === Show Active Component
@@ -46,8 +51,15 @@ const KeepsGoal = () => {
   ]);
 
   // This Function Hide Section 4 when Close Icon is clicked
-  function HideSection4() {
+  function hideSection4() {
     setSection4Component([<span></span>]);
+  }
+
+  // This State Store newGoalData as updatedGoalData
+  const [updatedGoalData, setupdatedGoalData] = useState({});
+  // This Function Contains the updates input values of New Goal Component
+  function newGoalData(newGoalData: object) {
+    setupdatedGoalData(newGoalData);
   }
 
   // This function gets called up when ADD GOAL button is click
@@ -59,7 +71,7 @@ const KeepsGoal = () => {
       setSection4Component([Section4A, 1]);
       return;
     }
-    alert("Now I can send something to database!");
+    createNewGoal(updatedGoalData);
   }
 
   // This Function Displays the Goal Details when Goal items clicked

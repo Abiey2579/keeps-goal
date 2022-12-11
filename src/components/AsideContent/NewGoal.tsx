@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import {
   ArrowRightOnRectangleIcon,
   CalendarIcon,
@@ -9,6 +9,28 @@ import {
 // recieve props (NOTE: Removing it will break the program)
 // PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
 const NewGoal: FunctionComponent<any> = (props) => {
+  // State for keep the Updated Input Values
+  const [newGoalInputs, setnewGoalInputs]: any = useState({
+    GoalName: "",
+    GoalStatus: "",
+    DateCreated: "",
+    DueDate: "",
+    GoalTarget: "",
+  });
+
+  // This Function Gets called whenever input detect a change (onChange())
+  // It Updates the State with latest input values
+  // And Pass the Updated State to KeepsGoalContainer.tsx Component for further
+
+  function handleInputValue(e: any) {
+    const { name, value } = e.target;
+    const stateCopy = { ...newGoalInputs };
+    stateCopy[name] = value;
+    setnewGoalInputs(stateCopy);
+    // This property is in KeepsGoalContainer Component it Recieves the Data
+    props.newGoalData(newGoalInputs);
+  }
+
   return (
     <div
       className="h-[99%] w-96 bg-gray-100 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50"
@@ -18,7 +40,7 @@ const NewGoal: FunctionComponent<any> = (props) => {
         <h1 className="text-2xl font-medium">New Goal</h1>
         <ArrowRightOnRectangleIcon
           className="w-5 h-5 cursor-pointer"
-          onClick={props.HideSection4}
+          onClick={props.hideSection4}
         />
       </div>
       <div className="px-7 py-5">
@@ -35,13 +57,15 @@ const NewGoal: FunctionComponent<any> = (props) => {
               name="GoalName"
               placeholder="Goal name"
               className="w-full border-0 outline-0 bg-transparent font-semibold"
+              onChange={handleInputValue}
+              value={newGoalInputs["GoalName"]}
             />
             <PencilIcon className="w-5 h-5" />
           </div>
         </div>
         <div className="mb-4">
           <label
-            htmlFor="Status"
+            htmlFor="GoalStatus"
             className="text-sm font-medium mb-1 text-gray-500"
           >
             Status
@@ -49,14 +73,16 @@ const NewGoal: FunctionComponent<any> = (props) => {
           <div className="flex items-center justify-between border-b py-3">
             <input
               type="text"
-              name="Status"
-              placeholder="Status"
+              name="GoalStatus"
+              placeholder="Goal Status"
               className="w-full border-0 outline-0 bg-transparent font-semibold"
+              onChange={handleInputValue}
+              value={newGoalInputs["GoalStatus"]}
             />
             <PencilIcon className="w-5 h-5" />
           </div>
         </div>
-        <div className="flex items-center justify-between gap-5">
+        <div className="flex items-center justify-between gap-3">
           <div className="mb-4">
             <label
               htmlFor="DateCreated"
@@ -66,12 +92,13 @@ const NewGoal: FunctionComponent<any> = (props) => {
             </label>
             <div className="flex items-center justify-between border-b py-3">
               <input
-                type="text"
+                type="date"
                 name="DateCreated"
                 placeholder="Date Created"
                 className="w-full border-0 outline-0 bg-transparent font-semibold"
+                onChange={handleInputValue}
+                value={newGoalInputs["DateCreated"]}
               />
-              <CalendarIcon className="w-5 h-5" />
             </div>
           </div>
           <div className="mb-4">
@@ -83,12 +110,13 @@ const NewGoal: FunctionComponent<any> = (props) => {
             </label>
             <div className="flex items-center justify-between border-b py-3">
               <input
-                type="text"
+                type="date"
                 name="DueDate"
                 placeholder="Due Date "
                 className="w-full border-0 outline-0 bg-transparent font-semibold"
+                onChange={handleInputValue}
+                value={newGoalInputs["DueDate"]}
               />
-              <CalendarIcon className="w-5 h-5" />
             </div>
           </div>
         </div>
@@ -105,6 +133,8 @@ const NewGoal: FunctionComponent<any> = (props) => {
               name="GoalTarget"
               placeholder="Goal Target"
               className="w-full border-0 outline-0 bg-transparent font-semibold"
+              onChange={handleInputValue}
+              value={newGoalInputs["GoalTarget"]}
             />
             <PencilIcon className="w-5 h-5" />
           </div>

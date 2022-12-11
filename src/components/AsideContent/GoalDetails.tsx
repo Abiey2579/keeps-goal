@@ -18,7 +18,7 @@ const GoalDetails: FunctionComponent<any> = (props) => {
         <h1 className="text-2xl font-medium">Goal Detail</h1>
         <ArrowRightOnRectangleIcon
           className="w-5 h-5 cursor-pointer"
-          onClick={props.HideSection4}
+          onClick={props.hideSection4}
         />
       </div>
       <div className="px-7 py-5">
