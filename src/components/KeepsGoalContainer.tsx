@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./../index.css";
 // This is Function Adds New Goal to Firebase
 // (CONTAINER COMPONENT) --> CONTAINS LOGICS
-import createNewGoal from "../nodejs/AddNewGoal";
+import createNewGoal from "./../containers/AddNewGoal";
 
 // SESCTION 1 --> LEFT SIDE COMPONENT (PRESENTATIONAL COMPONENT)
 import SideNavigation from "./SideNavigation/SideNavigation";
