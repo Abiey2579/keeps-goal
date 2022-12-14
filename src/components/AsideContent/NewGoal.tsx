@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import {
   ArrowRightOnRectangleIcon,
-  CalendarIcon,
   PencilIcon,
 } from "@heroicons/react/24/outline";
 
@@ -11,6 +10,10 @@ import {
 const NewGoal: FunctionComponent<any> = (props) => {
   // State for keep the Updated Input Values
   const [newGoalInputs, setnewGoalInputs]: any = useState({
+    GoalID: Math.floor(Math.random() * 9999999),
+    GoalType: "Social Media",
+    GoalIcon: "InboxStackIcon",
+    GoalCompletion: "Onprogress",
     GoalName: "",
     GoalStatus: "",
     DateCreated: "",

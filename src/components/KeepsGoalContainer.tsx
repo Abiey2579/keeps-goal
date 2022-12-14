@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import "./../index.css";
+import { PlusIcon } from "@heroicons/react/24/outline";
+
+// MINI COMPONENT
+import SuccessToast from "./MiniComponent/SuccessToast";
+import WarningToast from "./MiniComponent/WarningToast";
+
 // This is Function Adds New Goal to Firebase
 // (CONTAINER COMPONENT) --> CONTAINS LOGICS
 import createNewGoal from "./../containers/AddNewGoal";
+import { getAllGoals, responseArr } from "../containers/GetAllGoals";
 
 // SESCTION 1 --> LEFT SIDE COMPONENT (PRESENTATIONAL COMPONENT)
 import SideNavigation from "./SideNavigation/SideNavigation";
@@ -41,10 +48,14 @@ const KeepsGoal = () => {
   );
   let Section4B = <GoalDetails hideSection4={hideSection4} />;
 
+  // This state controls the success or warning
+  // when adding new Goal
+  const [newGoalSuccess, setnewGoalSuccess] = useState(false);
+  const [newGoalWarning, setnewGoalWarning] = useState(false);
+
   // This State Holds the Status of Section 4 it has two Values
   // 1 === Show Active Component
   // 0 === Hide Active Component
-
   const [Section4Component, setSection4Component] = useState<any>([
     Section4A,
     1,
@@ -66,12 +77,18 @@ const KeepsGoal = () => {
   // If clicked and New Goal Component is Hidden it will Display it but won't send anything to database
   // But if clicked and New Goal Component is on the Screen it check for input
   // And send inputs to database
-  function addNewGoal() {
+  async function addNewGoal() {
     if (Section4Component[1] !== 1) {
       setSection4Component([Section4A, 1]);
       return;
     }
-    createNewGoal(updatedGoalData);
+    const newGoal = await createNewGoal(updatedGoalData);
+    if (!!newGoal) {
+      setnewGoalSuccess(true);
+      refreshGoalsList();
+    } else {
+      setnewGoalWarning(true);
+    }
   }
 
   // This Function Displays the Goal Details when Goal items clicked
@@ -83,15 +100,40 @@ const KeepsGoal = () => {
     alert(id);
   }
 
+  // This Function Always gets called whenever CRUD operations happens
+  // Its fetches all Goals in the goals collection and pass them to Goals List Component as Props
+  function refreshGoalsList() {
+    // getAllGoals();
+    return responseArr;
+  }
+
   return (
     <div className="flex">
+      {/* SUCCESS TOAST SECTIONS */}
+      {newGoalSuccess && (
+        <SuccessToast
+          Title="New Goal Added"
+          closeToast={() => setnewGoalSuccess(false)}
+        />
+      )}
+
+      {newGoalWarning && (
+        <WarningToast
+          Title="New Goal Added"
+          closeToast={() => setnewGoalWarning(false)}
+        />
+      )}
+
       <SideNavigation />
       <div className="flex-grow h-screen">
         <TopNavigation addNewGoal={addNewGoal} />
         <div className="flex h-[85%]">
           <div className="flex-grow h-full">
             <Metrics />
-            <GoalList ShowGoalDetail={ShowGoalDetail} />
+            <GoalList
+              ShowGoalDetail={ShowGoalDetail}
+              goalsList={refreshGoalsList()}
+            />
           </div>
           {Section4Component[0]}
         </div>

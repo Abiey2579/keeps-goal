@@ -1,7 +1,6 @@
 import React, { FC, FunctionComponent } from "react";
 import * as HIcons from "@heroicons/react/24/outline";
 import Response from "./Response/data";
-
 // This Function Customizes the HeroIcon Library
 // Used for Dynamic Icon Creation
 const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
@@ -24,6 +23,14 @@ const DynamicHeroIcon: FC<{ icon: string }> = (props) => {
 // recieve props (NOTE: Removing it will break the program)
 // PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
 const GoalsDone: FunctionComponent<any> = (props) => {
+  // Destructuring Goals List from it Props
+  const { goalsList } = props;
+  // console.log(`Done - ${goalsList}`);
+
+  // ABOUT --> goalsList
+  // if it returns true then all values are value
+  // if it returns false then index [0] = false and [1] = the error message
+
   // This Variable Will Holds Only Goals with Status "Done"
   const GoalsDoneResponse = Response.filter(
     (Goal) => Goal.GoalStatus === "Done"
