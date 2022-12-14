@@ -1,15 +1,15 @@
-// const expressApp = require("./expressApp");
+const expressApp = require("./expressApp");
 
 // CODE TO INITIALIZE FIREBASE ADMIN
-// const admin = require("firebase-admin");
-// const credentials = require("./key/serviceAccountKey.json");
+const admin = require("firebase-admin");
+const credentials = require("./key/serviceAccountKey.json");
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(credentials),
-// });
+admin.initializeApp({
+  credential: admin.credential.cert(credentials),
+});
 
-// const firestoreDB = admin.firestore();
-// const authDB = admin.auth();
+const firestoreDB = admin.firestore();
+const authDB = admin.auth();
 // END OF CODE TO INITIALIZE FIREBASE ADMIN
 
 // ADDS DOC TO GOALS COLLECTION
