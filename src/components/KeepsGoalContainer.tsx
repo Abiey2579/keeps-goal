@@ -8,8 +8,7 @@ import WarningToast from "./MiniComponent/WarningToast";
 
 // This is Function Adds New Goal to Firebase
 // (CONTAINER COMPONENT) --> CONTAINS LOGICS
-import createNewGoal from "./../containers/AddNewGoal";
-import { getAllGoals, responseArr } from "../containers/GetAllGoals";
+import createNewGoal from "../containers/AddNewGoal";
 
 // SESCTION 1 --> LEFT SIDE COMPONENT (PRESENTATIONAL COMPONENT)
 import SideNavigation from "./SideNavigation/SideNavigation";
@@ -85,7 +84,6 @@ const KeepsGoal = () => {
     const newGoal = await createNewGoal(updatedGoalData);
     if (!!newGoal) {
       setnewGoalSuccess(true);
-      refreshGoalsList();
     } else {
       setnewGoalWarning(true);
     }
@@ -98,13 +96,6 @@ const KeepsGoal = () => {
       return;
     }
     alert(id);
-  }
-
-  // This Function Always gets called whenever CRUD operations happens
-  // Its fetches all Goals in the goals collection and pass them to Goals List Component as Props
-  function refreshGoalsList() {
-    // getAllGoals();
-    return responseArr;
   }
 
   return (
@@ -130,10 +121,7 @@ const KeepsGoal = () => {
         <div className="flex h-[85%]">
           <div className="flex-grow h-full">
             <Metrics />
-            <GoalList
-              ShowGoalDetail={ShowGoalDetail}
-              goalsList={refreshGoalsList()}
-            />
+            <GoalList ShowGoalDetail={ShowGoalDetail} />
           </div>
           {Section4Component[0]}
         </div>

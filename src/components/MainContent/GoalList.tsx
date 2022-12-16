@@ -1,6 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import OnprogressGoals from "./OnprogressGoals";
 import GoalsDone from "./GoalsDone";
+import { getAllGoals, responseArr } from "../../containers/GetAllGoals";
+
+// -------------------------
+import { firebaseDB } from "../../containers/db";
+import { collection, getDocs } from "firebase/firestore";
 
 // FunctionComponent<any> tell react that this component can
 // recieve props (NOTE: Removing it will break the program)
@@ -9,6 +14,31 @@ import GoalsDone from "./GoalsDone";
 // - GoalsDone
 // PRESETATIONAL COMPONENT (CONTAINS ONLY UI)
 const GoalList: FunctionComponent<any> = (props) => {
+  const [list, setlist] = useState<any[]>([]);
+
+  useEffect(() => {
+    const responseArr: any[] = [];
+    // GETS ALL AVAILABLE DOCS IN GOALs COLLECTION
+    const getAllGoals = async () => {
+      const response = await getDocs(collection(firebaseDB, "goals"));
+      response.forEach((doc) => {
+        responseArr.push(doc.data());
+      });
+      // @ts-ignore
+      setlist(responseArr);
+    };
+    getAllGoals();
+  });
+
+  // This Variable Will Holds Only Goals with Status "Onprogress"
+  const OnprogressGoalsResponse = list.filter(
+    (Goal) => Goal.GoalCompletion === "Onprogress"
+  );
+
+  // This Variable Will Holds Only Goals with Status "Done"
+  const GoalsDoneResponse = list.filter(
+    (Goal) => Goal.GoalCompletion === "Done"
+  );
   return (
     <div className="h-[85%] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50">
       <table className="w-full h-full">
@@ -35,7 +65,7 @@ const GoalList: FunctionComponent<any> = (props) => {
           {/* {console.log(`Goal List - ${props.goalsList}`)} */}
           <OnprogressGoals
             ShowGoalDetail={props.ShowGoalDetail}
-            goalsList={props.goalsList}
+            goalsList={OnprogressGoalsResponse}
           />
           <tr>
             <td colSpan={4} className="px-5">
@@ -44,7 +74,7 @@ const GoalList: FunctionComponent<any> = (props) => {
           </tr>
           <GoalsDone
             ShowGoalDetail={props.ShowGoalDetail}
-            goalsList={props.goalsList}
+            goalsList={GoalsDoneResponse}
           />
         </>
       </table>
