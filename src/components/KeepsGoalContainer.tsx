@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./../index.css";
-import { PlusIcon } from "@heroicons/react/24/outline";
+
+import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 
 // MINI COMPONENT
 import SuccessToast from "./MiniComponent/SuccessToast";
@@ -41,6 +42,22 @@ import NewGoal from "./AsideContent/NewGoal";
 
 // ORIGIN COMPONENT
 const KeepsGoal = () => {
+  const [uid, setuid] = useState<string>("");
+
+  useEffect(() => {
+    const auth = getAuth();
+    signInAnonymously(auth).catch((error) => {
+      alert(error);
+    });
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setuid(user.uid);
+        console.log(uid);
+      } else {
+        console.log("User is not signed in");
+      }
+    });
+  });
   // State holding info for conditionally rendering What to display on Section 4
   let Section4A = (
     <NewGoal hideSection4={hideSection4} newGoalData={newGoalData} />
@@ -81,7 +98,7 @@ const KeepsGoal = () => {
       setSection4Component([Section4A, 1]);
       return;
     }
-    const newGoal = await createNewGoal(updatedGoalData);
+    const newGoal = await createNewGoal(uid, updatedGoalData);
     if (!!newGoal) {
       setnewGoalSuccess(true);
     } else {
@@ -121,7 +138,7 @@ const KeepsGoal = () => {
         <div className="flex h-[85%]">
           <div className="flex-grow h-full">
             <Metrics />
-            <GoalList ShowGoalDetail={ShowGoalDetail} />
+            <GoalList ShowGoalDetail={ShowGoalDetail} currentUser={uid} />
           </div>
           {Section4Component[0]}
         </div>

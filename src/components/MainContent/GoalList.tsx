@@ -1,7 +1,7 @@
 import React, { useEffect, useState, FunctionComponent } from "react";
 import OnprogressGoals from "./OnprogressGoals";
 import GoalsDone from "./GoalsDone";
-import { getAllGoals, responseArr } from "../../containers/GetAllGoals";
+// import { getAllGoals, responseArr } from "../../containers/GetAllGoals";
 
 // -------------------------
 import { firebaseDB } from "../../containers/db";
@@ -20,7 +20,7 @@ const GoalList: FunctionComponent<any> = (props) => {
     const responseArr: any[] = [];
     // GETS ALL AVAILABLE DOCS IN GOALs COLLECTION
     const getAllGoals = async () => {
-      const response = await getDocs(collection(firebaseDB, "goals"));
+      const response = await getDocs(collection(firebaseDB, props.currentUser));
       response.forEach((doc) => {
         responseArr.push(doc.data());
       });
