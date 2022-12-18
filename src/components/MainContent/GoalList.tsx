@@ -42,7 +42,7 @@ const GoalList: FunctionComponent<any> = (props) => {
   return (
     <div className="h-[85%] overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50">
       <table className="w-full h-full">
-        <>
+        <tbody>
           <tr className="border-b px-5">
             <td className="text-sm font-medium py-5 pl-5">
               <span>Date created</span>
@@ -76,7 +76,7 @@ const GoalList: FunctionComponent<any> = (props) => {
             ShowGoalDetail={props.ShowGoalDetail}
             goalsList={GoalsDoneResponse}
           />
-        </>
+        </tbody>
       </table>
     </div>
   );

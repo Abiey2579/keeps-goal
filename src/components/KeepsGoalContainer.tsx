@@ -52,7 +52,6 @@ const KeepsGoal = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setuid(user.uid);
-        console.log(uid);
       } else {
         console.log("User is not signed in");
       }
